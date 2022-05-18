@@ -9,7 +9,7 @@ if __name__ == "__main__":
         name="signalpandas",
         version="0.1.3",
         author="Rick de Klerk",
-        author_email="rick_deklerk@outlook.com",
+        author_email="rickdkk@gmail.com",
         description="Bringing signal analysis to Pandas!",
         long_description=long_description,
         long_description_content_type="text/markdown",
@@ -22,7 +22,7 @@ if __name__ == "__main__":
             "License :: OSI Approved :: MIT License",
             "Operating System :: OS Independent",
         ],
-        package_dir={"": "src"},
-        packages=find_packages(where="src"),
+        package_dir={"": "."},
+        packages=find_packages(where="signalpandas"),
         python_requires=">=3.6",
     )

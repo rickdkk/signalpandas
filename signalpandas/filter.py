@@ -5,6 +5,7 @@ import pandas as pd
 from scipy.signal import butter, sosfiltfilt
 from scipy.signal import savgol_filter as savitzky_golay
 
+from .misc import restore_pandas_object
 from .custom_types import Signal
 from .validation import has_nulls
 
@@ -32,11 +33,8 @@ def _filter_frame_like(
     sos = butter(order, cutoff, btype=btype, output="sos", fs=sfreq)
     output = sosfiltfilt(sos, data, axis=0)
 
-    # Restore pandas objects, also make sure the function does not edit the original data
-    if isinstance(data, pd.DataFrame):
-        output = pd.DataFrame(output, data.index, data.columns)
-    elif isinstance(data, pd.Series):
-        output = pd.Series(output, index=data.index, name=data.name)
+    if isinstance(data, (pd.Series, pd.DataFrame)):
+        output = restore_pandas_object(data, output)
     return output
 
 
@@ -47,14 +45,23 @@ def lowpass_filter(data: Signal, order: int, cutoff: float, sfreq: Optional[floa
 
     Parameters
     ----------
-    data: the data that will be filtered
-    order: order of the filter
-    cutoff: cutoff frequency of the filter
-    sfreq: sample frequency of the data, optional if data.attrs["sfreq"] is available
+    data : Signal
+        The data that will be filtered
+    order : int
+        Order of the filter
+    cutoff : float
+        Cutoff frequency of the filter
+    sfreq : Optional[float]
+        Sample frequency of the data, optional if data.attrs["sfreq"] is available
 
     Returns
     -------
-    A new object with the filtered data
+    data : Signal
+        A new object with the filtered data
+
+    See Also
+    --------
+    sosfiltfilt
     """
     return _filter_frame_like(data, order, cutoff, "lowpass", sfreq)
 
@@ -127,7 +134,22 @@ def savgol_filter(
     mode: Optional[str],
     cval: Union[int, float, complex, None],
 ) -> Signal:
-    """Applies a Savitzky-Golay filter to a numpy or pandas object."""
+    """Applies a Savitzky-Golay filter to a numpy or pandas object.
+
+    Parameters
+    ----------
+    data
+    window_length
+    polyorder
+    deriv
+    delta
+    mode
+    cval
+
+    Returns
+    -------
+    A new object with the filtered data
+    """
 
     output = savitzky_golay(np.asarray(data), window_length, polyorder, deriv, delta, 0, mode, cval)
 
