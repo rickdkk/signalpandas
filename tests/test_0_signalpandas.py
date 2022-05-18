@@ -1,6 +1,6 @@
 import pandas as pd
 
-from signalpandas import __version__
+from signalpandas import initialize, __version__
 
 
 def test_version():
@@ -8,5 +8,7 @@ def test_version():
 
 
 def test_accessor():
+    initialize()
+
     assert pd.DataFrame.sig
     assert pd.Series.sig

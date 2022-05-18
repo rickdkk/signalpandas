@@ -2,7 +2,7 @@ from typing import Any
 
 import numpy as np
 
-from .custom_types import Signal
+from .sigtyping import Signal
 
 
 def check_time():

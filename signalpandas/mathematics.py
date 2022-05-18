@@ -1,6 +1,6 @@
 from scipy.integrate import cumulative_trapezoid
 
-from .custom_types import Signal
+from .sigtyping import Signal
 
 
 def time_normalize():

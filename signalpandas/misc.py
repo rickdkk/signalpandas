@@ -1,7 +1,7 @@
 import numpy.typing as npt
 import pandas as pd
 
-from .custom_types import Pandas
+from .sigtyping import Pandas
 
 
 def detect_outliers():

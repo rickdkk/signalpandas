@@ -3,7 +3,10 @@ import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal
 
+from signalpandas import initialize
 from signalpandas.filter import lowpass_filter
+
+initialize()
 
 
 def test_lowpass_filter():

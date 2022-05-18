@@ -6,7 +6,7 @@ from scipy.signal import butter, sosfiltfilt
 from scipy.signal import savgol_filter as savitzky_golay
 
 from .misc import restore_pandas_object
-from .custom_types import Signal
+from .sigtyping import Signal
 from .validation import has_nulls
 
 
