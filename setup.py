@@ -13,9 +13,9 @@ if __name__ == "__main__":
         description="Bringing signal analysis to Pandas!",
         long_description=long_description,
         long_description_content_type="text/markdown",
-        url="https://gitlab.com/Rickdkk/signalpandas",
+        url="https://github.com/rickdkk/signalpandas",
         project_urls={
-            "Bug Tracker": "https://gitlab.com/Rickdkk/signalpandas/-/issues",
+            "Bug Tracker": "https://github.com/rickdkk/signalpandas/-/issues",
         },
         classifiers=[
             "Programming Language :: Python :: 3",
