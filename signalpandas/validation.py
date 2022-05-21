@@ -1,5 +1,3 @@
-from typing import Any
-
 import numpy as np
 
 from .sigtyping import Signal
@@ -13,6 +11,6 @@ def check_continuity():
     pass
 
 
-def has_nulls(data: Signal) -> Any:
+def has_nulls(data: Signal) -> bool:
     """Returns True if there is any sample that is equal to NaN or Inf"""
-    return np.any(~np.isfinite(data))
+    return bool(np.any(~np.isfinite(data)))

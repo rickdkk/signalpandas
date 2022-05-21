@@ -5,3 +5,4 @@ import pandas as pd
 
 Signal: TypeAlias = Union[pd.DataFrame, pd.Series, np.ndarray]
 Pandas: TypeAlias = Union[pd.DataFrame, pd.Series]
+Number: TypeAlias = Union[int, float]

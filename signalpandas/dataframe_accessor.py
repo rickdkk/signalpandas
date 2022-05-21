@@ -76,3 +76,12 @@ class SeriesSignalAccessor:
 
     def sqrt(self) -> pd.Series:
         return np.sqrt(self._series)
+
+    def highpass_filter(self, order, cutoff, sfreq) -> pd.Series:
+        return highpass_filter(self._series, order=order, cutoff=cutoff, sfreq=sfreq)
+
+    def bandpass_filter(self, order, low, high, sfreq) -> pd.Series:
+        return bandpass_filter(self._series, order=order, low=low, high=high, sfreq=sfreq)
+
+    def bandstop_filter(self, order, low, high, sfreq) -> pd.Series:
+        return bandstop_filter(self._series, order=order, low=low, high=high, sfreq=sfreq)
