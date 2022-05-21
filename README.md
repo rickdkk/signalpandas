@@ -1,8 +1,9 @@
 # Signal pandas
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rickdkk/signalpandas/blob/main/LICENSE)
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg)
 ![Tests](https://github.com/rickdkk/signalpandas/actions/workflows/tests.yml/badge.svg)
-![CodeCov](https://codecov.io/gh/rickdkk/signalpandas/branch/master/graph/badge.svg)
+![CodeCov](https://codecov.io/gh/rickdkk/signalpandas/branch/main/graph/badge.svg)
 
 ## Overview
 
